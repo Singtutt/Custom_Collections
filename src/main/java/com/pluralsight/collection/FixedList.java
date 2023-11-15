@@ -28,12 +28,28 @@ public class FixedList<T> {
         numbers.add(10);
         numbers.add(3);
         numbers.add(92);
+        numbers.add(43); // this line should fail (List Full)
         System.out.println("Number of items in List: " + numbers.getItems().size());
-//        numbers.add(43); // this line should fail (List Full)
+
         FixedList<LocalDate> dates = new FixedList<>(2);
         dates.add(LocalDate.now());
         dates.add(LocalDate.now());
+        dates.add(LocalDate.ofEpochDay(15)); // this line should fail (Compilation error)
         System.out.println("Number of dates in List: " + dates.getItems().size());
-//        dates.add(15); // this line should fail (Compilation error);
+
+        FixedList<String> letters = new FixedList<>(5);
+        letters.add("A");
+        letters.add("B");
+        letters.add("C");
+        letters.add("D");
+        letters.add("E");
+        letters.add("F");
+        System.out.println("Letters within List: " + letters.getItems());
+
+        FixedList<Double> cost = new FixedList<>(2);
+        cost.add(2.19);
+        cost.add(15.99);
+        cost.add(20.00);
+        System.out.println("Costs within List: " + cost.getItems());
     }
 }
